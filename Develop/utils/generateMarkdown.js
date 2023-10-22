@@ -1,4 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   const licenseBadges = {
@@ -14,7 +14,7 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
+// function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   const licenseLinks = {
@@ -30,7 +30,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
+// function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license, badge, link) {
  return `
@@ -40,7 +40,7 @@ function renderLicenseSection(license, badge, link) {
  ${badge}`
 }
 
-// TODO: Create a function to generate markdown for README
+// function that generates markdown for license section in ReadMe file
 function generateMarkdown(license) {
   const badge = renderLicenseBadge(license);
   const link = renderLicenseLink(license);
@@ -48,10 +48,5 @@ function generateMarkdown(license) {
 
   return licenseSection;
 }
-/*function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
-}*/
 
 module.exports = {generateMarkdown};

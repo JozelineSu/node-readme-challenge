@@ -1,20 +1,20 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const iniquirer = require('inquirer');
 const fs = require('fs');
 const markdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
+// ReadMe file markdown
 const generateReadme = ({title, description, installation, usage, contributing, tests, license, github, email}) =>
 `# ${title}
 
 ## Table of Contents
 
-### [Description] (#description)
-### [Installation] (#installation)
-### [Usage] (#usage)
-### [Contributing] (#contributing)
-### [Tests] (#tests)
-### [License] (#license)
+[Description] (#description)
+[Installation] (#installation)
+[Usage] (#usage)
+[Contributing] (#contributing)
+[Tests] (#tests)
+[License] (#license)
 
 ## Description
 ${description}
@@ -28,12 +28,13 @@ ${contributing}
 ${tests}
 ${markdown.generateMarkdown(license)}
 ## Questions
-### GitHub: ${github}
-### Email: ${email}
+GitHub: ${github}
+Email: ${email}
 `;
 
+// Prompts for user to answer
 const licenses = ['MIT', 'Apache', 'GPL'];
-//const questions = []; 
+ 
 iniquirer.prompt([
     {
         type: 'input',
@@ -83,27 +84,8 @@ iniquirer.prompt([
       },
 ])
 .then((answers) => {
-    const readmeContent = generateReadme(answers);
+    const readmeContent = generateReadme(answers); // makes ReadMe file with user input
 
     fs.writeFile('README.md', readmeContent, (err) =>
     err ? console.log(err) : console.log('Successfully created ReadMe.'));
 });
-
-// TODO: Create a function to write README file
-/*function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (err) {
-            console.error(`Error writing ${fileName}: ${err}`);
-        } else {
-            console.log(`Successfully created ${fileName}`);
-        }
-    })
-}
-
-
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();*/
