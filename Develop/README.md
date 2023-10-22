@@ -1,22 +1,30 @@
-# first
+# j
 
 # Table of Contents
 
 ## [Description] (#description)
 ## [Installation] (#installation)
 ## [Usage] (#usage)
-## [Contributing Guidelines] (#contributing)
+## [Contributing] (#contributing)
 ## [Tests] (#tests)
 ## [License] (#license)
 
 # Description
-mine
+j
 # Installation
-none
+j
 # Usage
-to ur own
+j
 # Contributing Guidelines
-all
+j
 # Tests
-nope
+j
+# License
 
+ ## License
+ This project is licensed under the [MIT](https://opensource.org/licenses/MIT) license.
+ 
+ [MIT License] https://img.shields.io/badge/License-MIT-yellow.svg
+# Questions
+## GitHub: j
+## Email: j

@@ -1,33 +1,38 @@
 // TODO: Include packages needed for this application
 const iniquirer = require('inquirer');
 const fs = require('fs');
+const markdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const generateReadme = ({title, description, installation, usage, contributing, tests}) =>
+const generateReadme = ({title, description, installation, usage, contributing, tests, license, github, email}) =>
 `# ${title}
 
-# Table of Contents
+## Table of Contents
 
-## [Description] (#description)
-## [Installation] (#installation)
-## [Usage] (#usage)
-## [Contributing] (#contributing)
-## [Tests] (#tests)
-## [License] (#license)
+### [Description] (#description)
+### [Installation] (#installation)
+### [Usage] (#usage)
+### [Contributing] (#contributing)
+### [Tests] (#tests)
+### [License] (#license)
 
-# Description
+## Description
 ${description}
-# Installation
+## Installation
 ${installation}
-# Usage
+## Usage
 ${usage}
-# Contributing Guidelines
+## Contributing Guidelines
 ${contributing}
-# Tests
+## Tests
 ${tests}
-
+${markdown.generateMarkdown(license)}
+## Questions
+### GitHub: ${github}
+### Email: ${email}
 `;
 
+const licenses = ['MIT', 'Apache', 'GPL'];
 //const questions = []; 
 iniquirer.prompt([
     {
@@ -59,6 +64,22 @@ iniquirer.prompt([
         type: 'input',
         message: 'What are the test instructions?',
         name: 'tests',
+      },
+      {
+        type: 'list',
+        message: 'Please choose a license:',
+        choices: licenses,
+        name: 'license',
+      },
+      {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'github',
+      },
+      {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
       },
 ])
 .then((answers) => {
